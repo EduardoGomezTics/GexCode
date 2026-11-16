@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+import sys
+import os
+
+# 1. Obtener la ruta absoluta de la carpeta Gex
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 2. Inyectar esa ruta al inicio del sistema de búsqueda de módulos de Python
+if current_dir not in sys.path:
+    sys.path.insert(0, current_dir)
+
+# 3. Ahora Python ya sabe dónde buscar "cli"
+from cli.main import main
+
+if __name__ == "__main__":
+    sys.exit(main())
